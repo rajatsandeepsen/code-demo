@@ -1,65 +1,65 @@
 #include <stdio.h>
 int main()
-// Time and Space Complexity
+// c and Space Complexity
 {
-    int time = 0;
+    int c = 0;
     printf("Enter the limit of Array: ");
-    time++;
+    c++;
     int n;
-    time++;
+    c++;
     scanf("%d", &n);
-    time++;
+    c++;
     int array[n], i;
-    time++;
+    c++;
 
     printf("Enter the elements for the Array:\n");
-    time++;
+    c++;
     for (i = 0; i < n; i++)
     {
-        time++;
+        c++;
         scanf("%d", &array[i]);
     }
-    time++;
+    c++;
 
     int x;
-    time++;
+    c++;
     printf("Enter the Search Element: ");
-    time++;
+    c++;
     scanf("%d", &x);
-    time++;
+    c++;
     int flag = -1;
-    time++;
+    c++;
     for (i = 0; i < n; i++)
     {
-        time++;
+        c++;
         if (array[i] == x)
         {
-            time++;
+            c++;
             flag = i;
             break;
         }
-        time++;
+        c++;
     }
-    time++;
+    c++;
     if (flag == -1)
     {
-        time++;
+        c++;
         printf("Element not found\n");
     }
     else
     {
-        time++;
+        c++;
         printf("Element found at %d location\n", flag + 1);
     }
-    time++;
+    c++;
 
     for (i = 0; i < n; i++)
     {
-        time++;
+        c++;
         printf("%d ", array[i]);
     }
-    time++;
-    printf("\n Time Complexity %d ", time);
+    c++;
+    printf("\n c Complexity %d ", c);
     int space = sizeof(int) * (n + 4);
     printf("\n Space Complexity %d \n", space);
 }
