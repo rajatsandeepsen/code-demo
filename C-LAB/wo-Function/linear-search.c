@@ -53,13 +53,13 @@ int main()
     }
     c++;
 
-    for (i = 0; i < n; i++)
-    {
-        c++;
-        printf("%d ", array[i]);
-    }
-    c++;
-    printf("\n c Complexity %d ", c);
+    // for (i = 0; i < n; i++)
+    // {
+    //     c++;
+    //     printf("%d ", array[i]);
+    // }
+    // c++;
+    printf("\n Time Complexity %d ", c);
     int space = sizeof(int) * (n + 4);
     printf("\n Space Complexity %d \n", space);
 }
