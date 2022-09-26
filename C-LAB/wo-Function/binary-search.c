@@ -2,72 +2,72 @@
 int main()
 {
 
-    int time = 0;
+    int c = 0;
     printf("Enter the limit of Array: ");
-    time++;
+    c++;
     int n;
-    time++;
+    c++;
     scanf("%d", &n);
-    time++;
+    c++;
     int array[n], i;
-    time++;
+    c++;
     // only for the sorted array
     printf("Enter the elements for the Array in sorted order:\n");
-    time++;
-    for (i = 0; i < n; i++, time++)
+    c++;
+    for (i = 0; i < n; i++, c++)
     {
         scanf("%d", &array[i]);
     }
-    time++;
+    c++;
 
     // searching starts here
     int x;
-    time++;
+    c++;
     printf("Enter the Search Element: ");
-    time++;
+    c++;
     scanf("%d", &x);
-    time++;
+    c++;
     int flag = -1;
-    time++;
+    c++;
 
     // essencial for the searching
     int F = 0, L = n - 1;
-    time++;
+    c++;
     while (F <= L)
     {
         int MID = F + (L - F) / 2;
-        time++;
+        c++;
         if (array[MID] == x)
         {
-            time++;
+            c++;
             flag = MID;
             break;
         }
-        time++;
+        c++;
         if (array[MID] < x)
         {
             F = MID + 1;
-            time++;
+            c++;
         }
         else
         {
-            time++;
+            c++;
             L = MID - 1;
         }
-        time++;
+        c++;
     }
 
     if (flag == -1)
     {
-        time++;
+        c++;
         printf("Element not found\n");
     }
     else
     {
-        time++;
+        c++;
         printf("Element found at %d location\n", (flag + 1));
     }
     // location is not based on the array
-    printf("Time complexity %d\n", time);
+    printf("c complexity %d\n", c);
     printf("Space complexity %d\n", sizeof(int) * (7 + n));
 }
