@@ -8,7 +8,7 @@ void selectionSort(int array[], int n)
         min = d;
 
         // loop for finding the minimum element
-        for (j = d + 1; j, n - 1; j++)
+        for (j = d + 1; j < n; j++)
         {
             if (array[j] < array[min])
                 min = j;
