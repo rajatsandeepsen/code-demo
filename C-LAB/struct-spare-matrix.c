@@ -30,7 +30,16 @@ int main(){
 			   	}
 			}
 		}
-	printf("ROW\tCOL\tVALUE\n");
+	printf("\n\n");
+      for (i=0; i<n; i++){
+			for (j=0; j<n; j++){
+                        printf("%d\t",matrix[i][j]);
+            }
+            printf("\n");
+      }
+
+	printf("\n\narray size = %d\n\n",k);
+	printf("ROW (%d)\tCOL (%d)\tVALUE (%d)\n",n,n,k);
 	for (i=0; i<k; i++){
 	     printf("%d\t %d\t %d\n",rep[i].row,rep[i].col,rep[i].value);   
 	     }
