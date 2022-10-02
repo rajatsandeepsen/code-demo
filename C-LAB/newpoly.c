@@ -1,89 +1,103 @@
-//to find the sparse matrix
-#include<stdio.h>
+// to find the sparse matrix
+#include <stdio.h>
 
-struct poly {
-		int coeff;
-		int exp;
-		};
-void printPOLY(struct poly X[],int N)
+struct poly
+{
+      int coeff;
+      int exp;
+};
+struct poly Z[20], X[10], Y[10];
+void printPOLY(struct poly R[], int N)
 {
       int d;
-      printf("eqn is: ");     
-      for (d=0;d<N;d++)
-      {     
-            	printf("%dX^%d",X[d].coeff,X[d].exp);
-            	if (d!=N-1)
-            	      printf(" + ");
-            	
+      printf("eqn is: ");
+      for (d = 0; d < N; d++)
+      {
+            printf("%dX^%d", R[d].coeff, R[d].exp);
+            if (d != N - 1)
+                  printf(" + ");
       }
       printf("\n");
-      
 }
-void printExpo(struct poly X[],int N)
-{     int d;
-      for (d=0;d<N;d++)
-      {           printf("\n");
-            	printf("Coeffient of X: ");     
-            	scanf("%d",&X[d].coeff);
-            	printf("Exponential of X: ");                 	
-            	scanf("%d",&X[d].exp);
-            	
+void printExpo(struct poly X[], int N)
+{
+      int d;
+      printf("\nEnter the coeffecients and exponents in DESCENDING order");
+      for (d = 0; d < N; d++)
+      {
+            printf("\n");
+            printf("Coeffient of X: ");
+            scanf("%d", &X[d].coeff);
+            printf("Exponential of X: ");
+            scanf("%d", &X[d].exp);
       }
-      printPOLY(X,N);
-
+      printPOLY(X, N);
 }
-      
-      
-int polyADD(struct poly X[],struct poly Y[],int A,int B,struct poly Z[])
-{     int i,j,k;            
-      for (i=0 , j=0, k=0;i < A || j < B;k++)
-      {     
-      if (X[i].exp > Y[j].exp)
-            {
-                  Z[k].exp= X[i].exp;
-                  Z[k].coeff= X[i].coeff;
-                  i++;
-                
-            }
-            else if (X[i].exp < Y[j].exp)
-            {
-                  Z[k].exp = Y[j].exp;
-                  Z[k].coeff = Y[j].coeff;
-                  j++;
-                 
-                  
-            }
-            else if (X[i].exp == Y[j].exp)
+
+int polyADD(int A, int B)
+{
+      int i = 0, j = 0, k = 0;
+      while (i < A && j < B)
+      {
+            if (X[i].exp == Y[j].exp)
             {
                   Z[k].exp = X[i].exp;
-                  Z[k].coeff = X[i].coeff + Y[j].coeff;
+                  Z[k].coeff = (X[i].coeff + Y[j].coeff);
                   i++;
                   j++;
-   
-                  
+                  k++;
             }
-        }
-        return k;
-}
-      
-      
-      
-      	
-int main(){
-      int n1,n2;
-      printf("Enter Poly X1 Size: ");
-      scanf("%d",&n1);
-      struct poly X[n1];
-      printExpo(X,n1);
-      
-      printf("Enter Poly X2 Size: ");
-      scanf("%d",&n2);
-      struct poly Y[n2];
-      printExpo(X,n1);
-      printf("\n");
-      struct poly Z[n1+n2];
-      int K = polyADD(X ,Y ,n1 ,n2 ,Z);
-      printPOLY(Z,K);
+            else
+            {
+                  if (X[i].exp > Y[j].exp)
+                  {
+                        Z[k].exp = X[i].exp;
+                        Z[k].coeff = X[i].coeff;
+                        i++;
+                        k++;
+                  }
+                  else
+                  {
+                        Z[k].exp = Y[j].exp;
+                        Z[k].coeff = Y[j].coeff;
+                        j++;
+                        k++;
+                  }
+            }
       }
-      
-      
+      while (i < A)
+      {
+            Z[k].exp = X[i].exp;
+            Z[k].coeff = X[i].coeff;
+            i++;
+            k++;
+      }
+      while (j < B)
+      {
+            Z[k].exp = Y[j].exp;
+            Z[k].coeff = Y[j].coeff;
+            j++;
+            k++;
+      }
+
+      return k;
+}
+
+int main()
+{
+      int A, B;
+      printf("Enter Poly X1 Size: ");
+      scanf("%d", &A);
+
+      printExpo(X, A);
+
+      printf("Enter Poly X2 Size: ");
+      scanf("%d", &B);
+
+      printExpo(X, B);
+      printf("\n");
+
+      int K = polyADD(A, B);
+      printf("Resultant ");
+      printPOLY(Z, K);
+}
