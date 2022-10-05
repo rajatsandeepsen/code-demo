@@ -2,8 +2,10 @@
 
 int max = 20, top = -1, ITEM;
 int STACK[20];
+
 int isEmpty() { return top == -1; }
 int isFull() { return top == max - 1; }
+
 void pop()
 {
     if (isEmpty())
