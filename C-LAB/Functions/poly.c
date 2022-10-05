@@ -23,14 +23,14 @@ void display(struct Polynomial poly[], int terms)
 int readExpression(struct Polynomial poly[])
 {
     int terms, i;
-    printf("\nNumber of terms: ");
+    printf("\nEnter Polynomial size: ");
     scanf("%d", &terms);
     printf("\nEnter the coeffecients and exponents in DESCENDING order");
     for (i = 0; i < terms; i++)
     {
-        printf("\nCoeffecient :");
+        printf("\nCoeffecient of X: ");
         scanf("%d", &poly[i].coeff);
-        printf("Exponent :");
+        printf("Exponent of X: ");
         scanf("%d", &poly[i].exp);
     }
     return terms;
@@ -85,21 +85,18 @@ int addExpressions(int firstCount, int secondCount)
 
 int main()
 {
-    printf("\nFirst Expression:\n");
+    printf("\nFirst Polynomial\n");
     int firstCount = readExpression(first);
-
-    printf("\nSecond Expression:\n");
-    int secondCount = readExpression(second);
-
-    printf("\nFirst Expression");
+    printf("\neqn is ");
     display(first, firstCount);
 
-    printf("\nSecond Expression");
+    printf("\nSecond Polynomial\n");
+    int secondCount = readExpression(second);
+    printf("\neqn is ");
     display(second, secondCount);
 
     int resultCount = addExpressions(firstCount, secondCount);
 
-    printf("\nResultant Expression:\n");
+    printf("\nResultant eqn is ");
     display(result, resultCount);
-    return 0;
 }
