@@ -1,5 +1,6 @@
 package dsa;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class BasicProblems2 {
@@ -31,24 +32,31 @@ public class BasicProblems2 {
         // double convertedUSD = inrToUSD(inr);
         // System.out.println(convertedUSD);
         // System.out.println("This is the USD for the entered INR");
-        // System.out.print("Enter the limiting number for calculating fibonacci series: ");
+        // System.out.print("Enter the limiting number for calculating fibonacci series:
+        // ");
         // int limit = sc.nextInt();
         // fibonacciSeries(limit);
         // System.out.print("Enter a word to find its palindrome or not: ");
         // String word = sc.next();
         // String pal = palindrome(word);
         // System.out.println(pal);
-        System.out.println("Program to find the amstrong numbers in a series");
-        System.out.print("Enter a starting number: ");
-        int n1 = sc.nextInt();
-        System.out.print("Enter an ending number: ");
-        int n2 = sc.nextInt();
+        // System.out.println("Program to find the amstrong numbers in a series");
+        // System.out.print("Enter a starting number: ");
+        // int n1 = sc.nextInt();
+        // System.out.print("Enter an ending number: ");
+        // int n2 = sc.nextInt();
         // System.out.println(isAmstrong(num));
-        for (int i = n1; i <= n2; i++) {
-            if (isAmstrong(i) == true) {
-                System.out.print(i + " ");
-            }
-        }
+        // for (int i = n1; i <= n2; i++) {
+        // if (isAmstrong(i) == true) {
+        // System.out.print(i + " ");
+        // }
+        // }
+        // int[] numArray = { 8, 1, 7, 6, 2, 19, 1, 19 , 99, 52, 81, 99};
+        // duplicateElmNotSorted(numArray);
+        // System.out.println("Enter the radius of the circle: ");
+        // double radius = sc.nextDouble();
+        // double ans = areaOfCircle(radius);
+        // System.out.println(ans);
         sc.close();
 
     }
@@ -87,8 +95,8 @@ public class BasicProblems2 {
         } else
             return -1;
     }
-    
-    //finding largest number in 2 numbers
+
+    // finding largest number in 2 numbers
     static String findTheLargest(int num1, int num2) {
         if (num1 > num2) {
             return num1 + " Is the biggest";
@@ -101,16 +109,14 @@ public class BasicProblems2 {
         }
     }
 
-
-    //INR to USD convertor
+    // INR to USD convertor
     static double inrToUSD(double inr) {
         double usd = 81.63;
         double convertor = inr / usd;
         return convertor;
     }
 
-
-    //program to find fibonacci series upto n numbers
+    // program to find fibonacci series upto n numbers
     static void fibonacciSeries(int n) {
         int a = 0;
         int b = 1;
@@ -125,8 +131,8 @@ public class BasicProblems2 {
         }
 
     }
-    
-    //to find a given string is palindrome or not
+
+    // to find a given string is palindrome or not
     static String palindrome(String str) {
         char[] ch = str.toCharArray();
         String rev = "";
@@ -140,7 +146,7 @@ public class BasicProblems2 {
         }
     }
 
-    //find amstrong numbers upto n numbers
+    // find amstrong number or not
     static boolean isAmstrong(int n) {
         int input = n;
         int sum = 0;
@@ -153,4 +159,30 @@ public class BasicProblems2 {
 
         return sum == input;
     }
+
+    // Finding duplicate elements in a sorted Array
+    static void duplicateElm(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] == arr[i + 1]) {
+                System.out.println("Duplicate element found: " + arr[i]);
+            }
+        }
+    }
+
+    //finding duplicate element in a non sorted array
+    static void duplicateElmNotSorted(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.println("Duplicate element: " + arr[j]);
+                }
+            }
+        }
+    }
+    
+
+    
+
+
 }
