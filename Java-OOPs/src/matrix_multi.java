@@ -4,50 +4,52 @@ public class matrix_multi {
 	public static void main(String[] args) {
 		Scanner scan =new Scanner(System.in);
 		
-		int row1,col1,row2,col2,i,j,k;
-		System.out.print("Enter array and column size of matrix 1\n");
-			row1=scan.nextInt();
-			col1=scan.nextInt();
+		int ROW1, COL1, ROW2, COL2;
+
+		System.out.print("Enter ROW and COLUMN for First Matrix\n");
+		ROW1 = scan.nextInt();
+		COL1 = scan.nextInt();
 		
-		System.out.print("Enter array and column size of matrix 2\n");
-			row2=scan.nextInt();
-			col2=scan.nextInt();
+		System.out.print("Enter ROW and COLUMN for Second Matrix\n");
+		ROW2 = scan.nextInt();
+		COL2 = scan.nextInt();
 		
-		int mat1[][]=new int[row1][col1];
-		int mat2[][]=new int[row2][col2];
-		int mat3[][]=new int[row1][col2];
-		if (row1==col2) {
+		int M1[][] = new int[ROW1][COL1];
+		int M2[][] = new int[ROW2][COL2];
+		int RESULT[][] = new int[ROW1][COL2];
+		int i,j,k;
+
+		if (ROW1 == COL2) {
 			System.out.print("Enter elements of Matrix 1\n");
-			for (i=0;i<row1;i++) {
-				for(j=0;j<col1;j++) {
-					mat1[i][j]=scan.nextInt();
+			for (i = 0; i < ROW1; i++) {
+				for(j = 0; j < COL1; j++) {
+					M1[i][j] = scan.nextInt();
 				}
 			}
 			System.out.print("Enter elements of Matrix 2\n");
-			for (i=0;i<row2;i++) {
-				for(j=0;j<col2;j++) {
-					mat2[i][j]=scan.nextInt();
+			for (i = 0; i < ROW2; i++) {
+				for(j = 0; j < COL2; j++) {
+					M2[i][j] = scan.nextInt();
 				}
 			}
-			for (i=0;i<row1;i++) {
-				for(j=0;j<col2;j++) {
-					for(k=0;k<col1;k++) {
-						mat3[i][j]=mat1[i][k]*mat2[k][j];
+			for (i = 0; i < ROW1; i++) {
+				for(j = 0; j < COL2; j++) {
+					for(k = 0; k < COL1; k++) {
+						RESULT[i][j] = M1[i][k] * M2[k][j];
 					}
 				}
 			}
 
-			System.out.print("The product of 2 matrices is:\n");
-			for(i=0;i<row1;i++) {
-				for(j=0;j<col2;j++) {
-					System.out.print("\t");
-					System.out.print(++mat3[i][j]);
+			System.out.print("Result of Multiplication of two Matrix:\n");
+			for(i = 0; i < ROW1; i++) {
+				for(j = 0; j < COL2; j++) {
+					System.out.print("\t" + RESULT[i][j]);
 				}
 				System.out.print("\n");
 			}
 		}
 		else {
-			System.out.print("Product cannot be found; Matrix order error");
+			System.out.print("Matrix Multiplication is Impossible");
 		}
 	}
 }
