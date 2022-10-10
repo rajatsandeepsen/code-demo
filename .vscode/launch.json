@@ -18,6 +18,18 @@
       "miDebuggerPath": "/path/to/gdb",
       "setupCommands": [
         {
+            "type": "java",
+            "name": "Launch BasicProblems2",
+            "request": "launch",
+            "mainClass": "dsa.BasicProblems2",
+            "projectName": "code-demo_ec8955a4"
+        },
+        {
+            "type": "java",
+            "name": "Launch BasicProblems3",
+            "request": "launch",
+            "mainClass": "dsa.BasicProblems3",
+            "projectName": "code-demo_ec8955a4"
           "description": "Enable pretty-printing for gdb",
           "text": "-enable-pretty-printing",
           "ignoreFailures": true
