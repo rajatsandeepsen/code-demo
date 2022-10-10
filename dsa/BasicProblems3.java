@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BasicProblems3 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // Scanner sc = new Scanner(System.in);
         // System.out.print("Enter the height of the rectangle: ");
         // int height = sc.nextInt();
         // System.out.print("Enter the width of the rectangle: ");
@@ -37,10 +37,14 @@ public class BasicProblems3 {
         // System.out.print("Palindrome num :");
         // int num = sc.nextInt();
         // System.out.println(palindromeNum(num));
-        System.out.print("Enter an alphabet: ");
-        char input = sc.next().charAt(0);
-        vowelsOrConsonants(input);
-        sc.close();
+        // System.out.print("Enter an alphabet: ");
+        // char input = sc.next().charAt(0);
+        // vowelsOrConsonants(input);
+        // System.out.print("Enter a number: ");
+        // int n = sc.nextInt();
+        // System.out.println(substractProductAndSum(n));
+        sumOfNums();
+        // sc.close();
     }
     
 
@@ -183,6 +187,30 @@ public class BasicProblems3 {
         }
     }
 
-
+    //program to print the sum of negative numbers, sum of positive even numbers and the sum of positive odd numbers from a list of numbers (N) entered by the user. The list terminates when the user enters a zero.
+    static void sumOfNums() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter nums: ");
+        int sumOfNegNums = 0;
+        int sumOfPosEvenNums = 0;
+        int sumOfPosOddNums = 0;
+        while (true) {
+            int input = sc.nextInt();
+            if (input == 0) {
+                break;
+            } else if (input < 0) {
+                sumOfNegNums += input;
+            } else if (input % 2 == 0 && input >= 0) {
+                sumOfPosEvenNums += input;
+            } else if (input % 2 != 0 && input > 0) {
+                sumOfPosOddNums += input;
+            }
+            
+        }
+        System.out.println("Sum of Negative nums : " + sumOfNegNums);
+        System.out.println("Sum of Positive Even nums : " + sumOfPosEvenNums);
+        System.out.println("Sum of Positive odd nums : " + sumOfPosOddNums);
+        sc.close();
+    }
 
 }
