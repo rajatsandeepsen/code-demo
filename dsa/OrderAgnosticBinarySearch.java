@@ -3,8 +3,8 @@ package dsa;
 public class OrderAgnosticBinarySearch {
 	public static void main(String[] args) {
 		//		int[] arr = {2, 4, 6, 9, 11, 14, 20, 36, 48};
-		int[] arr = { 44, 33, 12, 5, 1, -66, -80 };
-		int target = 12;
+		int[] arr = {10, 9, 8, 7, 6};
+		int target = 10;
 
 		System.out.println(orderAgnosticBs(arr, target));
 	}
@@ -34,7 +34,7 @@ public class OrderAgnosticBinarySearch {
 				}
 			}else {
 				if(target > arr[mid]) {
-					end = mid + 1;
+					end = mid - 1;
 				}else {
 					start = mid + 1;
 				}
