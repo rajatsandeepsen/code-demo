@@ -19,6 +19,13 @@
       "setupCommands": [
         {
             "type": "java",
+            "name": "Launch BinarySearch",
+            "request": "launch",
+            "mainClass": "dsa.BinarySearch",
+            "projectName": "code-demo_ec8955a4"
+        },
+        {
+            "type": "java",
             "name": "Launch BasicProblems2",
             "request": "launch",
             "mainClass": "dsa.BasicProblems2",
