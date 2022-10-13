@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 struct Polynomial
 
 {
@@ -12,25 +12,25 @@ void display(struct Polynomial poly[], int terms)
 {
     int i;
     printf("\n");
-    for(i = 0; i < terms ; i++)
+    for (i = 0; i < terms; i++)
     {
         printf("%dX^%d", poly[i].coeff, poly[i].exp);
-        if(i!=terms-1)
-        printf("+");
+        if (i != terms - 1)
+            printf("+");
     }
 }
 
 int readExpression(struct Polynomial poly[])
 {
     int terms, i;
-    printf("\nNumber of terms: ");
+    printf("\nEnter Polynomial size: ");
     scanf("%d", &terms);
     printf("\nEnter the coeffecients and exponents in DESCENDING order");
-    for(i = 0 ; i<terms; i++)
+    for (i = 0; i < terms; i++)
     {
-        printf("\nCoeffecient :");
+        printf("\nCoeffecient of X: ");
         scanf("%d", &poly[i].coeff);
-        printf("Exponent :");
+        printf("Exponent of X: ");
         scanf("%d", &poly[i].exp);
     }
     return terms;
@@ -38,13 +38,10 @@ int readExpression(struct Polynomial poly[])
 
 int addExpressions(int firstCount, int secondCount)
 {
-    int i, j, k;
-    i = 0;
-    j = 0;
-    k = 0;
-    while(i < firstCount && j < secondCount)
+    int i = 0, j = 0, k = 0;
+    while (i < firstCount && j < secondCount)
     {
-        if(first[i].exp == second[j].exp)
+        if (first[i].exp == second[j].exp)
         {
             result[k].coeff = first[i].coeff + second[j].coeff;
             result[k].exp = first[i].exp;
@@ -52,7 +49,7 @@ int addExpressions(int firstCount, int secondCount)
             j++;
             k++;
         }
-        else if(first[i].exp > second[j].exp)
+        else if (first[i].exp > second[j].exp)
         {
             result[k].coeff = first[i].coeff;
             result[k].exp = first[i].exp;
@@ -68,7 +65,7 @@ int addExpressions(int firstCount, int secondCount)
         }
     }
 
-    while(i < firstCount)
+    while (i < firstCount)
     {
         result[k].coeff = first[i].coeff;
         result[k].exp = first[i].exp;
@@ -76,7 +73,7 @@ int addExpressions(int firstCount, int secondCount)
         i++;
     }
 
-    while(j < secondCount)
+    while (j < secondCount)
     {
         result[k].coeff = second[j].coeff;
         result[k].exp = second[j].exp;
@@ -88,16 +85,18 @@ int addExpressions(int firstCount, int secondCount)
 
 int main()
 {
-    int firstCount, secondCount, resultCount;
-    printf("\nFirst Expression:\n");
-    firstCount = readExpression(first);
-    printf("\nSecond Expression:\n");
-    secondCount = readExpression(second);
-    printf("\nFirst Expression");
+    printf("\nFirst Polynomial\n");
+    int firstCount = readExpression(first);
+    printf("\neqn is ");
     display(first, firstCount);
+
+    printf("\nSecond Polynomial\n");
+    int secondCount = readExpression(second);
+    printf("\neqn is ");
     display(second, secondCount);
-    resultCount = addExpressions(firstCount, secondCount);
-    printf("\nResultant Expression:\n");
+
+    int resultCount = addExpressions(firstCount, secondCount);
+
+    printf("\nResultant eqn is ");
     display(result, resultCount);
-    return 0;
 }
