@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class BasicProblems3 {
     public static void main(String[] args) {
-        // Scanner sc = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         // System.out.print("Enter the height of the rectangle: ");
         // int height = sc.nextInt();
         // System.out.print("Enter the width of the rectangle: ");
@@ -43,39 +43,36 @@ public class BasicProblems3 {
         // System.out.print("Enter a number: ");
         // int n = sc.nextInt();
         // System.out.println(substractProductAndSum(n));
-        sumOfNums();
-        // sc.close();
+        // sumOfNums();
+        sc.close();
     }
-    
 
-
-
-    //program to find the area of a circle
+    // program to find the area of a circle
     static double areaOfCircle(double radius) {
         double pi = Math.PI;
         double rad = pi * (radius * radius);
         return rad;
     }
-    
-    //program to find the area of a triangle
+
+    // program to find the area of a triangle
     static double areaOfTriangle(double base, double height) {
         double area = 0.5 * base * height;
         return area;
     }
 
-    //program to find the area of a rectangle
+    // program to find the area of a rectangle
     static int areaOfRectangle(int height, int width) {
         int area = height * width;
         return area;
     }
 
-    //area of equilatoral triangle 
+    // area of equilatoral triangle
     static double areaOfEquiTriangle(double side) {
         double area = (Math.sqrt(3) / 4) * side * side;
         return area;
     }
 
-    //leetcode problem "Subtract the Product and Sum of Digits of an Integer"
+    // leetcode problem "Subtract the Product and Sum of Digits of an Integer"
     static int substractProductAndSum(int n) {
         int product = 1;
         int sum = 0;
@@ -87,7 +84,7 @@ public class BasicProblems3 {
         return product - sum;
     }
 
-    //factors of a given number
+    // factors of a given number
     static void factorsOfNum(int num) {
         for (int i = 1; i <= num; i++) {
             if (num % i == 0) {
@@ -96,7 +93,7 @@ public class BasicProblems3 {
         }
     }
 
-    //finding the biggest number which user enters until he presses 0
+    // finding the biggest number which user enters until he presses 0
     static void biggestNumUntilUserPressZero() {
         Scanner sc = new Scanner(System.in);
         int largestNum = 0;
@@ -108,9 +105,8 @@ public class BasicProblems3 {
         System.out.println("Largest number is: " + largestNum);
         sc.close();
     }
-    
 
-    //factorial of a number
+    // factorial of a number
     static void factorialOfNum(int num) {
         int factorial = 1;
         for (int i = num; i >= 1; i--) {
@@ -119,7 +115,7 @@ public class BasicProblems3 {
         System.out.println("Factorial of the number is :" + factorial);
     }
 
-    //program to calculate monthly electricity bill
+    // program to calculate monthly electricity bill
     static void electricityBill(double hrs, double watt) {
         double consumedEnergy = hrs * watt;
         double kWh = consumedEnergy / 1000;
@@ -130,7 +126,7 @@ public class BasicProblems3 {
         System.out.println("Electricity bill per month: " + monthlyElectricityBill);
     }
 
-    //average of N numbers
+    // average of N numbers
     static void avgOfNNumbers(int n) {
         Scanner sc = new Scanner(System.in);
         int sum = 0;
@@ -145,7 +141,7 @@ public class BasicProblems3 {
 
     }
 
-    //reverse a string
+    // reverse a string
     static String reverseString(String str) {
         char[] arr = str.toCharArray();
         String rev = "";
@@ -157,7 +153,7 @@ public class BasicProblems3 {
         return rev;
     }
 
-    //palindrome number or not
+    // palindrome number or not
     static boolean palindromeNum(int num) {
         int input = num;
         int sum = 0;
@@ -172,7 +168,7 @@ public class BasicProblems3 {
         return input == sum;
     }
 
-    //program to find vowels or consonants
+    // program to find vowels or consonants
     static void vowelsOrConsonants(char input) {
         switch (input) {
             case 'a':
@@ -187,7 +183,9 @@ public class BasicProblems3 {
         }
     }
 
-    //program to print the sum of negative numbers, sum of positive even numbers and the sum of positive odd numbers from a list of numbers (N) entered by the user. The list terminates when the user enters a zero.
+    // program to print the sum of negative numbers, sum of positive even numbers
+    // and the sum of positive odd numbers from a list of numbers (N) entered by the
+    // user. The list terminates when the user enters a zero.
     static void sumOfNums() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter nums: ");
@@ -205,12 +203,14 @@ public class BasicProblems3 {
             } else if (input % 2 != 0 && input > 0) {
                 sumOfPosOddNums += input;
             }
-            
+
         }
         System.out.println("Sum of Negative nums : " + sumOfNegNums);
         System.out.println("Sum of Positive Even nums : " + sumOfPosEvenNums);
         System.out.println("Sum of Positive odd nums : " + sumOfPosOddNums);
         sc.close();
     }
+
+    
 
 }
