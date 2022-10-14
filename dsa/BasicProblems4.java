@@ -14,9 +14,12 @@ public class BasicProblems4 {
         // System.out.println("largest number out of all is: " + largestOfThreeNums(num1, num2, num3));
         // System.out.println("smallest number out of all is: " + smallestOfThreeNums(num1, num2, num3));
         // System.out.println("Enter the number to check whether its odd or even: ");
-        System.out.println("Enter your age: ");
+        // System.out.println("Enter your age: ");
+        // int num = sc.nextInt();
+        // System.out.println(eligibleToVoteOrNot(num));
+        System.out.println("Enter a number: ");
         int num = sc.nextInt();
-        System.out.println(eligibleToVoteOrNot(num));
+        limitPrint(num);
         sc.close();
     }
     
@@ -59,7 +62,17 @@ public class BasicProblems4 {
         if (age >= 18) {
             return "You're eligible to vote";
         } else {
-            return "You're not eligible to vote, wait " + (18 - age )+ " more years";
+            return "You're not eligible to vote, wait " + (18 - age) + " more years";
+        }
+    }
+
+    static void limitPrint(int limit) {
+        if (limit > 0) {
+            for (int i = 0; i <= limit; i++) {
+                System.out.println(i);
+            }
+        } else {
+            System.out.println("Enter a number greator than 0");
         }
     }
 }
