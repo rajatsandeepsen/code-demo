@@ -2,10 +2,9 @@ package dsa;
 
 public class BinarySearch {
 	public static void main(String[] args) {
-		int[] arr = { 2, 4, 6, 9, 11, 15, 20, 36, 48, 50, 55, 60, 68, 70, 75, 84, 90, 101, 104 };
-		int target = 20;
+		int[] arr = { 2, 4, 6, 9, 11, 15, 20, 18, 16, 10, 8, 5, 3, 1 };
 		// System.out.println(searchRange(arr, target));
-		System.out.println(ans(arr, target));
+		System.out.println(peakIndexOfMountainArray(arr));
 		// System.out.println(binaraySearch(arr, target));
 		// System.out.println(ceilingOfANumber(arr, target));
 		// char[] letters = {'c', 'f', 'j' , 'l', 'm'};
@@ -188,6 +187,35 @@ public class BinarySearch {
 		// its not a good practice returning '-1' as a non-found element. But really
 		// lazy ykyk.
 		return -1;
+	}
+
+
+	//leetcode problem : Peak index of mountain array
+	//a mountain array which is a bitonic array is nothing but a combination of ascending and descending numbers in one array
+	//example = [2, 4, 5, 6, 3, 1] so heres the peak num is 6
+	static int peakIndexOfMountainArray(int[] arr) {
+		int start = 0;
+		int end = arr.length - 1;
+
+		while (start < end) {
+			int mid = start + (end - start) / 2;
+
+			if (arr[mid] > arr[mid + 1]) {
+				//youre in the decreasing part of the array this may be the answer but you have to check 
+				//the right hand side also
+				// this is why end is not equal to mid - 1;
+				end = mid;
+			} else {
+				//youre at the ascending part of the array
+				start = mid + 1;
+				// because we know that mid + 1 element is greator than mid element
+			}
+		}
+		//in the end, start == end and pointing to the largest number because of the 2 checks above.
+		//start and end are always trying to find the max element in the above two checks, hence when they are 
+		//pointing to just one element thats the max one cause thats what the checks say. 
+		return start;
+		// or return end it doesnt matter since both are same.
 	}
 
 }
