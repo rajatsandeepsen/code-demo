@@ -1,11 +1,12 @@
-package dsa;
+// package dsa;
 
 public class BinarySearch {
 	public static void main(String[] args) {
-		int[] arr = { 2, 4, 6, 9, 11, 15, 20, 18, 16, 10, 8, 5, 3, 1 };
+		// int[] arr = { 2, 4, 6, 9, 11, 15, 20, 18, 16, 10, 8, 5, 3, 1 };
+		int[] arr = { 4, 5, 6, 7, 0, 1, 2, 3 };
 		// System.out.println(searchRange(arr, target));
 		// System.out.println(peakIndexOfMountainArray(arr));
-		System.out.println(findInMountainArray(arr, 16));
+		System.out.println(countRotations(arr));
 		// System.out.println(binaraySearch(arr, target));
 		// System.out.println(ceilingOfANumber(arr, target));
 		// char[] letters = {'c', 'f', 'j' , 'l', 'm'};
@@ -339,6 +340,64 @@ public class BinarySearch {
 			}
 		}
 		return -1;
+	}
+
+	// leetcode problem: find the rotation count in Rotated sorted array.
+	// lets say a rotated array = {4, 5, 6, 7, 0, 1, 2, 3};
+	// the array before rotating is = {0, 1, 2, 3, 4, 5, 6, 7};
+	// here you can see that the peak element 7 has came to the 3rd index of the
+	// array. Which means its in the 4th position.
+	// so you can say that the array has rotated 4 times. and the [answer 4 = pivot
+	// + 1];
+	static int countRotations(int[] arr) {
+		int pivot = findPivot(arr);
+		return pivot + 1;
+	}
+
+
+
+
+	//leetcode problem: split array largest sum
+	static int splitArrLargestSum(int[] arr, int m) {
+		int start = 0;
+		int end = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+			//in the end of the loop start will contain the largest element in the array
+			start = Math.max(start, arr[i]);
+
+
+			//sum of the array will contain in end
+			end += arr[i];
+		}
+
+		while (start < end) {
+			int mid = start + (end - start) / 2;
+
+			//calculate how many pieces you can divide this in with this max sum
+			int sum = 0;
+			int pieces = 1;
+
+			for (int num : arr) {
+				if (num + sum > mid) {
+					//you cannot add to this subarray, make new one
+					//say you add this num in new subarray, then sum = num;
+					sum = num;
+					pieces++;
+				} else {
+					sum += num;
+				}
+			}
+
+			if (pieces > m) {
+				start = mid + 1;
+			} else {
+				end = mid;
+			}
+		}
+		
+		//return either start or end cuz both will contain same element.
+		return start;
 	}
 
 }
