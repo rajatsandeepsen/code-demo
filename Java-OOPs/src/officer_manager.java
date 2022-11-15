@@ -1,6 +1,7 @@
 import java.util.Scanner;
 class theEmployee {
 	Scanner scan = new Scanner(System.in);
+	Scanner scanNext = new Scanner(System.in);
 	String name, address;
 	String phone;
 	int salary, age;
@@ -29,8 +30,8 @@ class officer extends theEmployee{
 	void inputBasisDetails() {
 		System.out.print("Enter Officer details: \n\n");
 		super.inputBasisDetails();
-		System.out.print("Enter Specialization: ");
-		specialization = scan.next();
+		System.out.println("Enter Specialization: ");
+		specialization = scanNext.nextLine();
 		System.out.print("\n\n");
 	}
 	void displayDetails() {
@@ -44,8 +45,8 @@ class manager extends theEmployee{
 	void inputBasisDetails() {
 		System.out.print("Enter Manager details: \n\n");
 		super.inputBasisDetails();
-		System.out.print("Enter Department: ");
-		dept = scan.next();
+		System.out.println("Enter Department: ");
+		dept = scanNext.nextLine();
 		System.out.print("\n\n");
 	}
 	void displayDetails() {
