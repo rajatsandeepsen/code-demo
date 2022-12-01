@@ -1,12 +1,23 @@
+import java.util.Arrays;
+
 // package dsa;
 
 public class BinarySearch {
 	public static void main(String[] args) {
-		// int[] arr = { 2, 4, 6, 9, 11, 15, 20, 18, 16, 10, 8, 5, 3, 1 };
-		int[] arr = { 4, 5, 6, 7, 0, 1, 2, 3 };
-		// System.out.println(searchRange(arr, target));
+		int[] arr = { 18, 20, 21, 22, 25, 30, 5, 6, 8, 10, 12, 13, 14, 15, 17};
+		int target = 8;
+		// int[] arr = { 4, 5, 6, 7, 0, 1, 2, 3 };
+		// int[][] arr2D = {
+		// 		{ 10, 20, 30, 40, },
+		// 		{ 15, 25, 35, 45, },
+		// 		{ 28, 29, 37, 49, },
+		// 		{ 33, 34, 38, 50, },
+		// };
+		// System.out.println(ans(arr, target));
+		System.out.println(search(arr, target));
 		// System.out.println(peakIndexOfMountainArray(arr));
-		System.out.println(countRotations(arr));
+		// System.out.println(countRotations(arr));
+		// System.out.println(Arrays.toString(binarySearchin2DArr(arr2D, 5)));
 		// System.out.println(binaraySearch(arr, target));
 		// System.out.println(ceilingOfANumber(arr, target));
 		// char[] letters = {'c', 'f', 'j' , 'l', 'm'};
@@ -93,7 +104,7 @@ public class BinarySearch {
 	// Find the smallest letter greator than the target
 	static char nextGreatestLetter(char[] letters, char target) {
 		// char[] letters = {'c', 'f', 'j' , 'l', 'm'}
-		// target = 'l'
+		// target = 'm'
 		int start = 0;
 		int end = letters.length - 1;
 
@@ -120,8 +131,8 @@ public class BinarySearch {
 
 	// part of this problem
 	static int search(int[] arr, int target, boolean isFirstIndex) {
-		// int[] arr = { 2, 4, 6, 9, 9, 9, 20, 36, 48 };
-		// int target = 9;
+		// int[] arr = { 2, 4, 6, 9, 11, 15, 16, 16, 16, 18, 20 };
+		// int target = 16;
 		int start = 0;
 		int end = arr.length - 1;
 		int ans = -1;
@@ -200,6 +211,8 @@ public class BinarySearch {
 		int start = 0;
 		int end = arr.length - 1;
 
+		// { 2, 4, 6, 9, 11, 15, 17, 18, 16, 14, 10, 8, 5, 1}
+
 		while (start < end) {
 			int mid = start + (end - start) / 2;
 
@@ -274,6 +287,8 @@ public class BinarySearch {
 	}
 
 	// leetcode question find in rotated sorted array
+	//{ 18, 20, 21, 22, 25, 30, 5, 6, 8, 10, 12, 13, 14, 15, 17};
+	//target = 8;
 	static int search(int[] arr, int target) {
 		int pivot = findPivot(arr);
 
@@ -285,12 +300,13 @@ public class BinarySearch {
 			return pivot;
 		}
 		// else if target >= start element
-		else if (target >= arr[0]) {
+		else if (target > arr[0]) {
 			return binaraySearchPassingStartandEnd(arr, target, 0, pivot - 1);
 		}
 		return binaraySearchPassingStartandEnd(arr, target, pivot + 1, arr.length - 1);
 	}
-	//part of this problem
+
+	// part of this problem
 	static int binaraySearchPassingStartandEnd(int[] arr, int target, int start, int end) {
 		while (start <= end) {
 			int mid = start + (end - start) / 2;
@@ -307,7 +323,8 @@ public class BinarySearch {
 		// lazy ykyk.
 		return -1;
 	}
-	//part of this problem
+
+	// part of this problem
 	static int findPivot(int[] arr) {
 		int start = 0;
 		int end = arr.length - 1;
@@ -354,34 +371,30 @@ public class BinarySearch {
 		return pivot + 1;
 	}
 
-
-
-
-	//leetcode problem: split array largest sum
+	// leetcode problem: split array largest sum
 	static int splitArrLargestSum(int[] arr, int m) {
 		int start = 0;
 		int end = 0;
 
 		for (int i = 0; i < arr.length; i++) {
-			//in the end of the loop start will contain the largest element in the array
+			// in the end of the loop start will contain the largest element in the array
 			start = Math.max(start, arr[i]);
 
-
-			//sum of the array will contain in end
+			// sum of the array will contain in end
 			end += arr[i];
 		}
 
 		while (start < end) {
 			int mid = start + (end - start) / 2;
 
-			//calculate how many pieces you can divide this in with this max sum
+			// calculate how many pieces you can divide this in with this max sum
 			int sum = 0;
 			int pieces = 1;
 
 			for (int num : arr) {
 				if (num + sum > mid) {
-					//you cannot add to this subarray, make new one
-					//say you add this num in new subarray, then sum = num;
+					// you cannot add to this subarray, make new one
+					// say you add this num in new subarray, then sum = num;
 					sum = num;
 					pieces++;
 				} else {
@@ -395,9 +408,30 @@ public class BinarySearch {
 				end = mid;
 			}
 		}
-		
-		//return either start or end cuz both will contain same element.
+
+		// return either start or end cuz both will contain same element.
 		return start;
+	}
+
+	// Binary Search in 2D array
+	// 1) Binary search in sorted 2D array which is sorted in row wise and column
+	// wise
+
+	static int[] binarySearchin2DArr(int[][] arr, int target) {
+		int row = 0;
+		int col = arr.length - 1;
+
+		while (row < arr.length && col >= 0) {
+			if (arr[row][col] == target) {
+				return new int[] { row, col };
+			}
+			if (arr[row][col] < target) {
+				row++;
+			} else {
+				col--;
+			}
+		}
+		return new int[] { -1, -1 };
 	}
 
 }
